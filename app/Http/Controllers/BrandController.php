@@ -72,7 +72,7 @@ class BrandController extends Controller
 
         // Validate incoming data
         $validator = Validator::make($request->all(), [
-            'brand_name' => 'nullable|unique:brands,brand_name,' . $id,
+            'brand_name' => 'nullable|unique:brands,brand_name,' . $id . ',brand_id',
             'brand_image' => 'nullable|url',
             'rating' => 'nullable|integer|between:1,5',
         ]);
