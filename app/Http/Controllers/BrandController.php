@@ -40,9 +40,25 @@ class BrandController extends Controller
     public function show($id)
     {
         $brand = Brand::find($id);
+
         if (!$brand) {
             return response()->json(['message' => 'Brand not found'], 404);
         }
+
         return response()->json($brand, 200);
+    }
+
+
+    public function destroy($id)
+    {
+        $brand = Brand::find($id);
+
+        if (!$brand) {
+            return response()->json(['message' => 'Brand not found'], 404);
+        }
+
+        $brand->delete();
+        
+        return response()->json(['message' => 'Brand deleted successfully'], 200);
     }
 }
