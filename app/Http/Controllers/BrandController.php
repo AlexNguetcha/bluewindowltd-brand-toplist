@@ -17,7 +17,7 @@ class BrandController extends Controller
             'rating' => 'required|integer|between:1,5',
         ]);
 
-        if($validator->fails()) {
+        if ($validator->fails()) {
             return response()->json($validator->errors(), 422);
         }
 
@@ -58,7 +58,42 @@ class BrandController extends Controller
         }
 
         $brand->delete();
-        
+
         return response()->json(['message' => 'Brand deleted successfully'], 200);
+    }
+
+    public function update(Request $request, $id)
+    {
+        $brand = Brand::find($id);
+
+        if (!$brand) {
+            return response()->json(['message' => 'Brand not found'], 404);
+        }
+
+        // Validate incoming data
+        $validator = Validator::make($request->all(), [
+            'brand_name' => 'nullable|unique:brands,brand_name,' . $id,
+            'brand_image' => 'nullable|url',
+            'rating' => 'nullable|integer|between:1,5',
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json($validator->errors(), 422);
+        }
+
+        // Update only the fields that were provided in the request
+        if ($request->has('brand_name')) {
+            $brand->brand_name = $request->brand_name;
+        }
+        if ($request->has('brand_image')) {
+            $brand->brand_image = $request->brand_image;
+        }
+        if ($request->has('rating')) {
+            $brand->rating = $request->rating;
+        }
+
+        $brand->save();
+
+        return response()->json($brand, 200);
     }
 }
