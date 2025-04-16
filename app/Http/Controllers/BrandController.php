@@ -15,6 +15,7 @@ class BrandController extends Controller
             'brand_name' => 'required|unique:brands,brand_name',
             'brand_image' => 'required|url',
             'rating' => 'required|integer|between:1,5',
+            'country_code' => 'nullable|string|size:2',
         ]);
 
         if ($validator->fails()) {
@@ -26,6 +27,7 @@ class BrandController extends Controller
             'brand_name' => $request->brand_name,
             'brand_image' => $request->brand_image,
             'rating' => $request->rating,
+            'country_code' => $request->country_code
         ]);
 
         return response()->json($brand, 201);
@@ -75,6 +77,7 @@ class BrandController extends Controller
             'brand_name' => 'nullable|unique:brands,brand_name,' . $id . ',brand_id',
             'brand_image' => 'nullable|url',
             'rating' => 'nullable|integer|between:1,5',
+            'country_code' => 'nullable|string|size:2',
         ]);
 
         if ($validator->fails()) {
@@ -90,6 +93,9 @@ class BrandController extends Controller
         }
         if ($request->has('rating')) {
             $brand->rating = $request->rating;
+        }
+        if($request->has('country_code')){
+            $brand->country_code = $request->country_code;
         }
 
         $brand->save();
