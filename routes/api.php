@@ -5,3 +5,5 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::apiResource('brands', BrandController::class);
+
+Route::get('brands/toplist', [BrandController::class, 'getToplist']);

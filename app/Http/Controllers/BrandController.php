@@ -96,4 +96,21 @@ class BrandController extends Controller
 
         return response()->json($brand, 200);
     }
+
+    public function getToplist(Request $request)
+    {
+        $cfIpCountry = $request->header('CF-IPCountry');
+
+        if(!$cfIpCountry) {
+            $defaultTopRatedBrands = Brand::orderBy('rating', 'desc')->take(10)->get();
+            return response()->json($defaultTopRatedBrands, 200);
+        }
+
+        $topRatedBrands = Brand::where('country_code', $cfIpCountry)
+            ->orderBy('rating', 'desc')
+            ->take(10)
+            ->get();
+
+        return response()->json($topRatedBrands, 200);
+    }
 }
