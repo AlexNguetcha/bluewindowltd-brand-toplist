@@ -36,4 +36,13 @@ class BrandController extends Controller
         $brands = Brand::all();
         return response()->json($brands, 200);
     }
+
+    public function show($id)
+    {
+        $brand = Brand::find($id);
+        if (!$brand) {
+            return response()->json(['message' => 'Brand not found'], 404);
+        }
+        return response()->json($brand, 200);
+    }
 }
