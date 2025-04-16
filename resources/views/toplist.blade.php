@@ -252,7 +252,7 @@
 
             .brand-top_bonus {
                 font-size: 1.2rem;
-                   min-width: 80% !important;
+                min-width: 80% !important;
             }
 
             .brand-top_number {
@@ -273,6 +273,14 @@
             .brand-terms div {
                 max-width: 100%;
                 text-align: justify;
+            }
+
+            .brand-rating-stars {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                justify-content: center;
+                gap: 2px;
             }
         }
     </style>
@@ -298,8 +306,10 @@
                                 alt="">
                         </div>
                         <div class="brand-top_name border">
-                            <div class="brand-rating">4.8</div>
-                            <div class="brand-stars">⭐⭐⭐⭐</div>
+                            <div class="brand-rating-stars">
+                                <div class="brand-rating">4.8</div>
+                                <div class="brand-stars">⭐⭐⭐⭐</div>
+                            </div>
                             <div class="brand-name">
                                 <img src="https://www.casinoonlinefrancais.info/img/commons/bcel/icon_verified.svg"
                                     alt="verified icon" loading="lazy" height="18px" width="18px"
@@ -307,6 +317,7 @@
                                 Cashed Casino
                             </div>
                         </div>
+
                         <div class="brand-top_bonus border">
                             Jusqu'à 750$
                             <span>+ 200 Tours Gratuits</span>
