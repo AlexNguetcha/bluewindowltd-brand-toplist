@@ -18,10 +18,30 @@
         }
 
         .container {
-            width: 100%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
+            padding-left: 1rem;
+            padding-right: 1rem;
+            margin-top: 20px;
+        }
+
+        @media (min-width: 768px) {
+            .container {
+                padding-left: 1rem;
+                padding-right: 1rem;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .container {
+                padding-left: 4rem;
+                padding-right: 4rem;
+            }
+        }
+
+        @media (min-width: 1440px) {
+            .container {
+                padding-left: 16rem;
+                padding-right: 16rem;
+            }
         }
 
         .toplist-container {
@@ -31,10 +51,10 @@
             position: relative;
             border: 1px solid #b4b4b4;
             background: #fff;
-            padding: 10px;
+            padding: 2em 15px;
             border-radius: 2px;
             margin-bottom: 25px;
-            padding-bottom: 15px;
+            /* padding-bottom: 15px; */
         }
 
         .toplist-container_title {}
@@ -57,10 +77,11 @@
 
         .toplist-container_brands {
             display: flex;
-            gap: 15px;
+            flex-direction: column;
+            gap: 25px;
         }
 
-        .toplist-container_brands_item{
+        .toplist-container_brands_item {
             width: 100%;
         }
 
@@ -83,6 +104,12 @@
             border-radius: 0 0 3px 3px;
             z-index: 1;
             color: #4E525D;
+            font-weight: 600;
+        }
+
+        .toplist-container_brands_item .brand-terms div {
+            max-width: 90%;
+            word-wrap: break-word;
         }
 
         .border {
@@ -116,6 +143,10 @@
         }
 
         .toplist-container_brands_item .brand-top_name .brand-name {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 2px;
             font-size: 18px;
             text-align: center;
             font-weight: 700;
@@ -176,7 +207,7 @@
             padding: 0.5rem .0rem;
             border: 0;
             width: 85%;
-            min-width: 90px;    
+            min-width: 90px;
             text-decoration: none;
             text-align: center;
         }
@@ -195,6 +226,55 @@
             color: #0F73E6;
             font-weight: 600;
         }
+
+        @media (max-width: 768px) {
+            .brand-top {
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 15px;
+            }
+
+            .brand-top_logo,
+            .brand-top_name,
+            .brand-top_bonus,
+            .brand-top_actions {
+                width: 100%;
+                margin: 10px 0;
+                text-align: center;
+            }
+
+            .brand-top_actions {
+                flex-direction: row;
+                justify-content: center;
+                flex-wrap: wrap;
+                gap: 10px;
+            }
+
+            .brand-top_bonus {
+                font-size: 1.2rem;
+                   min-width: 80% !important;
+            }
+
+            .brand-top_number {
+                display: none !important;
+            }
+
+            .brand-top_name .brand-rating,
+            .brand-top_name .brand-stars,
+            .brand-top_name .brand-name {
+                text-align: center;
+            }
+
+            .toplist-container_title h2 {
+                font-size: 16px;
+                text-align: center;
+            }
+
+            .brand-terms div {
+                max-width: 100%;
+                text-align: justify;
+            }
+        }
     </style>
 </head>
 
@@ -207,6 +287,7 @@
                 </h2>
             </div>
             <div class="toplist-container_brands border">
+
                 <div class="toplist-container_brands_item">
                     <div class="brand-top">
                         <div class="brand-top_number border">
@@ -220,6 +301,9 @@
                             <div class="brand-rating">4.8</div>
                             <div class="brand-stars">⭐⭐⭐⭐</div>
                             <div class="brand-name">
+                                <img src="https://www.casinoonlinefrancais.info/img/commons/bcel/icon_verified.svg"
+                                    alt="verified icon" loading="lazy" height="18px" width="18px"
+                                    title="Certified by CasinoOnlineFrancais.info">
                                 Cashed Casino
                             </div>
                         </div>
@@ -237,11 +321,15 @@
                         </div>
                     </div>
                     <div class="brand-terms">
-                        Découvrez Cashed Casino, la nouvelle destination de divertissement en ligne préférée des joueurs
-                        français. Plongez dans son univers de jeu passionnant et profitez de tous ses bonus et
-                        fonctionnalités.
+                        <div>
+                            Découvrez Cashed Casino, la nouvelle destination de divertissement en ligne préférée des
+                            joueurs
+                            français. Plongez dans son univers de jeu passionnant et profitez de tous ses bonus et
+                            fonctionnalités.
+                        </div>
                     </div>
                 </div>
+
             </div>
 
         </div>
