@@ -10,7 +10,7 @@ const getBrandToplist = async () => {
     return data;
 }
 
-const buildBrandElement = (brand) => {
+const buildBrandElement = (brand, key=false) => {
     if (document.querySelector(`[data-brand="${brand.brand_id}"]`)) {
         return '';
     }
@@ -22,7 +22,7 @@ const buildBrandElement = (brand) => {
     <div class="toplist-container_brands_item" data-brand="${brand.brand_id}">
         <div class="brand-top">
             <div class="brand-top_number border">
-                <span>${brand.brand_id}</span>
+                <span>${key??brand.brand_id}</span>
             </div>
             <div class="brand-top_logo border">
                 <img src="${brand.brand_image}" alt="${brand.brand_name} logo">
@@ -39,16 +39,16 @@ const buildBrandElement = (brand) => {
             </div>
 
             ${
-                brand.bonusTitle
+                brand.bonus_title
                     ? `<div class="brand-top_bonus border">
-                        ${brand.bonusTitle}
-                        ${brand.bonusSubtitle ? `<span>${brand.bonusSubtitle}</span>` : ''}
+                        ${brand.bonus_title}
+                        ${brand.bonus_subtitle ? `<span>${brand.bonus_title}</span>` : ''}
                     </div>`
                     : ''
             }
 
             <div class="brand-top_actions border">
-                <a href="${brand.bonusLink}" class="get-bonus">Obtenir le bonus</a>
+                <a href="${brand.website}" class="get-bonus">Obtenir le bonus</a>
                 <a href="${brand.website}" class="visit-website">Visiter le site</a>
             </div>
         </div>
@@ -71,8 +71,8 @@ window.onload = async () => {
 
     const brands = await getBrandToplist();
 
-    brands.forEach((brand) => {
-        const brandElement = buildBrandElement(brand);
+    brands.forEach((brand, key) => {
+        const brandElement = buildBrandElement(brand, key + 1);
         brandContainer.insertAdjacentHTML('beforeend', brandElement);
     });
 
