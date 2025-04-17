@@ -15,7 +15,7 @@ const buildBrandElement = (brand) => {
         return '';
     }
 
-    const starIcons = '⭐'.repeat(brand.stars);
+    const starIcons = '⭐'.repeat(brand.rating);
     const verifiedIcon = 'https://www.casinoonlinefrancais.info/img/commons/bcel/icon_verified.svg';
 
     return `
@@ -25,7 +25,7 @@ const buildBrandElement = (brand) => {
                 <span>${brand.brand_id}</span>
             </div>
             <div class="brand-top_logo border">
-                <img src="${brand.brand_image}" alt="${brand.name} logo">
+                <img src="${brand.brand_image}" alt="${brand.brand_name} logo">
             </div>
             <div class="brand-top_name border">
                 <div class="brand-rating-stars">
@@ -34,7 +34,7 @@ const buildBrandElement = (brand) => {
                 </div>
                 <div class="brand-name">
                     ${brand.verified ? `<img src="${verifiedIcon}" alt="verified icon" loading="lazy" height="18px" width="18px" title="Certified by CasinoOnlineFrancais.info">` : ''}
-                    ${brand.name}
+                    ${brand.brand_name}
                 </div>
             </div>
 
