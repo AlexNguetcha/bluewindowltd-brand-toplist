@@ -14,8 +14,13 @@ class BrandController extends Controller
         $validator = Validator::make($request->all(), [
             'brand_name' => 'required|unique:brands,brand_name',
             'brand_image' => 'required|url',
-            'rating' => 'required|integer|between:1,5',
+            'rating' => 'required|decimal:1|between:1,5',
             'country_code' => 'nullable|string|size:2',
+            'bonus_title' => 'nullable|string|max:255',
+            'bonus_subtitle' => 'nullable|string|max:255',
+            'description' => 'nullable|string',
+            'website' => 'nullable|url',
+            'verified' => 'nullable|boolean',
         ]);
 
         if ($validator->fails()) {
@@ -27,7 +32,13 @@ class BrandController extends Controller
             'brand_name' => $request->brand_name,
             'brand_image' => $request->brand_image,
             'rating' => $request->rating,
-            'country_code' => $request->country_code
+            'country_code' => $request->country_code,
+            'bonus_title' => $request->bonus_title,
+            'bonus_subtitle' => $request->bonus_subtitle,
+            'description' => $request->description,
+            'website' => $request->website,
+            'verified' => filter_var($request->verified, FILTER_VALIDATE_BOOLEAN),
+
         ]);
 
         return response()->json($brand, 201);
@@ -76,8 +87,13 @@ class BrandController extends Controller
         $validator = Validator::make($request->all(), [
             'brand_name' => 'nullable|unique:brands,brand_name,' . $id . ',brand_id',
             'brand_image' => 'nullable|url',
-            'rating' => 'nullable|integer|between:1,5',
+            'rating' => 'nullable|decimal:1|between:1,5',
             'country_code' => 'nullable|string|size:2',
+            'bonus_title' => 'nullable|string|max:255',
+            'bonus_subtitle' => 'nullable|string|max:255',
+            'description' => 'nullable|string',
+            'website' => 'nullable|url',
+            'verified' => 'nullable|boolean',
         ]);
 
         if ($validator->fails()) {
@@ -94,8 +110,23 @@ class BrandController extends Controller
         if ($request->has('rating')) {
             $brand->rating = $request->rating;
         }
-        if($request->has('country_code')){
+        if ($request->has('country_code')) {
             $brand->country_code = $request->country_code;
+        }
+        if ($request->has('bonus_title')) {
+            $brand->bonus_title = $request->bonus_title;
+        }
+        if ($request->has('bonus_subtitle')) {
+            $brand->bonus_subtitle = $request->bonus_subtitle;
+        }
+        if ($request->has('description')) {
+            $brand->description = $request->description;
+        }
+        if ($request->has('website')) {
+            $brand->website = $request->website;
+        }
+        if ($request->has('verified')) {
+            $brand->verified = filter_var($request->verified, FILTER_VALIDATE_BOOLEAN);
         }
 
         $brand->save();
@@ -107,7 +138,7 @@ class BrandController extends Controller
     {
         $cfIpCountry = $request->header('CF-IPCountry');
 
-        if(!$cfIpCountry) {
+        if (!$cfIpCountry) {
             $defaultTopRatedBrands = Brand::orderBy('rating', 'desc')->take(10)->get();
             return response()->json($defaultTopRatedBrands, 200);
         }
