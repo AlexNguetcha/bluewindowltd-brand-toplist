@@ -16,7 +16,7 @@ class BrandSeeder extends Seeder
             [
                 'brand_name' => 'Cashed Casino',
                 'brand_image' => 'https://www.casinoonlinefrancais.info/cdn-cgi/image/format=webp,width=255,height=100,quality=80/img/logo250/cashed-casino.webp',
-                'rating' => 5.0,
+                'rating' => 4.7,
                 'bonus_title' => 'Jusqu\'à 750$',
                 'bonus_subtitle' => '+ 200 Tours Gratuits',
                 'description' => 'Découvrez Cashed Casino, la nouvelle destination de divertissement en ligne préférée des joueurs français. Plongez dans son univers de jeu passionnant et profitez de tous ses bonus et fonctionnalités.',
@@ -38,7 +38,7 @@ class BrandSeeder extends Seeder
             [
                 'brand_name' => 'Alexander',
                 'brand_image' => 'https://www.casinoonlinefrancais.info/cdn-cgi/image/format=webp,width=255,height=100,quality=80/img/logo250/alexander-casino.webp',
-                'rating' => 3,
+                'rating' => 3.2,
                 'bonus_title' => 'Jusqu\'à 100€',
                 'bonus_subtitle' => '+ 100 Tours Gratuits',
                 'description' => 'Voici un casino en ligne destiné aux joueurs les plus conquérants ! Alexander Casino propose une interface de grande qualité : un cashback jusqu’à 2 %, des mini-jeux de Spribe, une sélection judicieuse de machines à sous et bien d’autres avantages.',
