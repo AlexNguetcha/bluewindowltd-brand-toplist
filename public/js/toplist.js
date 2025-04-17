@@ -66,13 +66,20 @@ const buildBrandElement = (brand) => {
 
 
 window.onload = async () => {
-    const brands = await getBrandToplist();
-    // console.log({brands});
     const brandContainer = document.querySelector('#brand-container');
+    const loading = document.querySelector('#loading');
+
+    const brands = await getBrandToplist();
 
     brands.forEach((brand) => {
         const brandElement = buildBrandElement(brand);
         brandContainer.insertAdjacentHTML('beforeend', brandElement);
     });
+
+    if(brands.length === 0) {
+        brandContainer.insertAdjacentHTML('beforeend', '<div style="margin: auto; padding: 2em" class="no-brands">Aucune marque trouvée</div>');
+    }
+
+    loading.style.display = 'none';
 }
 

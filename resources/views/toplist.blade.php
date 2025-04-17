@@ -20,7 +20,7 @@
             </div>
             <div id="brand-container" class="toplist-container_brands border">
 
-                <div class="toplist-container_brands_item">
+                {{-- <div class="toplist-container_brands_item">
                     <div class="brand-top">
                         <div class="brand-top_number border">
                             <span>1</span>
@@ -63,7 +63,9 @@
                             fonctionnalités.
                         </div>
                     </div>
-                </div>
+                </div> --}}
+
+                <div style="margin: auto; padding: 2em" id="loading">Chargement en cours...</div>
 
             </div>
 
