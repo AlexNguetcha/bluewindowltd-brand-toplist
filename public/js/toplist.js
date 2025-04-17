@@ -42,7 +42,7 @@ const buildBrandElement = (brand, key=false) => {
                 brand.bonus_title
                     ? `<div class="brand-top_bonus border">
                         ${brand.bonus_title}
-                        ${brand.bonus_subtitle ? `<span>${brand.bonus_title}</span>` : ''}
+                        ${brand.bonus_subtitle ? `<span>${brand.bonus_subtitle}</span>` : ''}
                     </div>`
                     : ''
             }
