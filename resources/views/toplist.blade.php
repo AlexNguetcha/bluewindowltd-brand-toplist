@@ -8,7 +8,7 @@
     <title>Brand top list</title>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('css/toplist.css') }}">
-    <script src="{{ asset('js/toplist.js') }}" ></script>
+    <script src="{{ asset('js/toplist.js') }}"></script>
 </head>
 
 <body>
@@ -18,6 +18,20 @@
                 <h2>Notre sélection des meilleurs casinos en ligne fiables et certifiés par les experts en 2025
                 </h2>
             </div>
+            <div class="toplist-filter">
+                <div>
+                    <label for="sort-select" class="toplist-container_label">Trier par pays</label>
+                    <select id="country-code" class="toplist-container_select">
+                        <option value="all">Tous les pays</option>
+                        <option value="cm">Cameroun</option>
+                        <option value="ca">Canada</option>
+                        <option value="be">Belgique</option>
+                        <option value="fr">France</option>
+                        <option value="sn">Sénégal</option>
+                    </select>
+                </div>
+            </div>
+            <div style="margin: auto; padding: 2em;" id="loading">Chargement en cours...</div>
             <div id="brand-container" class="toplist-container_brands border">
 
                 {{-- <div class="toplist-container_brands_item">
@@ -64,8 +78,6 @@
                         </div>
                     </div>
                 </div> --}}
-
-                <div style="margin: auto; padding: 2em" id="loading">Chargement en cours...</div>
 
             </div>
 
