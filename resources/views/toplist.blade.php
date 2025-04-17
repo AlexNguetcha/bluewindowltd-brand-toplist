@@ -8,17 +8,17 @@
     <title>Brand top list</title>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('css/toplist.css') }}">
+    <script src="{{ asset('js/toplist.js') }}" ></script>
 </head>
 
 <body>
     <div class="container">
         <div class="toplist-container border">
             <div class="toplist-container_title">
-                <h2>Notre sélection des meilleurs casinos en ligne fiables et certifiés par les experts de
-                    CasinoOnlineFrancais en 2025
+                <h2>Notre sélection des meilleurs casinos en ligne fiables et certifiés par les experts en 2025
                 </h2>
             </div>
-            <div class="toplist-container_brands border">
+            <div id="brand-container" class="toplist-container_brands border">
 
                 <div class="toplist-container_brands_item">
                     <div class="brand-top">
